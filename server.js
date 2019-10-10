@@ -4,14 +4,14 @@ let bodyParser = require('body-parser');
 let port = process.env.PORT || 8080;
 let router = express.Router();
 let mongoose = require('mongoose');
-let connectionString = require('./config/connectionString.js').connectionString;
+let connectionString = require('./config/connectionString').connectionString;
 
 const option = {
-    socketTimeoutMS: 30000,
-    keepAlive: true,
-    reconnectTries: 30000,
-    useCreateIndex: true,
-    useNewUrlParser: true,
+    // socketTimeoutMS: 30000,
+    // keepAlive: true,
+    // reconnectTries: 30000,
+    // useCreateIndex: true,
+    useNewUrlParser: true    
 };
 
 let connectToMongoose = function () {
