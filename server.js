@@ -7,10 +7,10 @@ let mongoose = require('mongoose');
 let connectionString = require('./config/connectionString').connectionString;
 
 const option = {
-    // socketTimeoutMS: 30000,
-    // keepAlive: true,
-    // reconnectTries: 30000,
-    // useCreateIndex: true,
+    socketTimeoutMS: 30000,
+    keepAlive: true,
+    reconnectTries: 30000,
+    useCreateIndex: true,
     useNewUrlParser: true    
 };
 
