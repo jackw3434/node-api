@@ -11,7 +11,8 @@ const option = {
     keepAlive: true,
     reconnectTries: 30000,
     useCreateIndex: true,
-    useNewUrlParser: true    
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 };
 
 let connectToMongoose = function () {
