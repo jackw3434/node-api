@@ -3,32 +3,10 @@ let app = express();
 let bodyParser = require('body-parser');
 let port = process.env.PORT || 8080;
 let router = express.Router();
-let mongoose = require('mongoose');
 let connectionString = require('./config/connectionString').connectionString;
+let initMongoose = require('./init/init-mongoose');
 
-const option = {
-    socketTimeoutMS: 30000,
-    keepAlive: true,
-    reconnectTries: 30000,
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-};
-
-let connectToMongoose = function () {
-
-    mongoose.connect(connectionString, option, (err) => {
-        if (err) {
-            console.log(err);
-            console.log('Retrying Database Connection');
-            connectToMongoose();
-        } else {
-            console.log("Database Connected");
-        }
-    });
-}
-console.log(connectionString);
-connectToMongoose();
+initMongoose.connectToMongoose(connectionString);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
