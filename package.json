@@ -14,10 +14,10 @@
     "jest": "^24.9.0",
     "nodemon": "^1.19.3"
   },
-  "scripts": {
+  "scripts": {    
     "start": "node server.js",
     "dev": "nodemon --inspect server.js",
-    "test": "jest --verbose --detectOpenHandles --runInBand  --coverage --forceExit"
+    "test": "jest --verbose --detectOpenHandles --runInBand  --coverage"
   },
   "author": "",
   "license": "ISC"

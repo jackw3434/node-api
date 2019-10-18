@@ -5,11 +5,11 @@ module.exports = function (router) {
 
         Users.find(function (err, users) {
 
-            if (err ) {
+            if (err) {
                 return res.status(400).send(err);
             }
 
-            res.status(200).json(users);
+            res.status(200).json({ users: users });
         })
     });
 }

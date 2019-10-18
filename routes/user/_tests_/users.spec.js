@@ -6,9 +6,25 @@ let testHelper = require('../../../test/test-helper');
 describe('users test', function () {
 
     beforeAll(async (done) => {
-        await testHelper.init;
+        await testHelper.init();
+        await testHelper.prepareUsersCollection();
         return done();
     });
+
+
+    describe('users.post test', function () {
+        it('should POST a new user and return a status of 200 OK', function () {
+            return frisby
+                .post(baseURL + 'users', {
+                    name: "James"
+                })
+                .then(function (res) {
+                    console.log(res);
+                    expect(res.status).toBe(200);
+                    expect(res._json).toBe('User: James has been created.');
+                })
+        });
+    })
 
     describe('users.get test', function () {
 
