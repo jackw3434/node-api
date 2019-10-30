@@ -1,0 +1,20 @@
+{
+    "roles": {
+        "superAdmin": {
+            "user.delete": true,
+            "user.get": true,
+            "user.put": true,
+            "users.get": true,
+            "user.post": true,
+            "user.me.get": true
+        },
+        "admin": {
+            "user.delete": true,
+            "user.get": true,
+            "user.put": true,
+            "users.get": true,
+            "user.post": true,
+            "user.me.get": true
+        }
+    }
+}

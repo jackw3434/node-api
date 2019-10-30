@@ -1,6 +1,5 @@
 let Users = require('../../models/user');
 
-
 module.exports = function (router) {
     router.route('/users').get(function (req, res) {
 
