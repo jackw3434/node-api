@@ -2,11 +2,13 @@ let Users = require('../../models/user');
 
 
 module.exports = function (router) {
-    router.route('/users').get(function (req, res) {
+    router.route('/users/:id').get(function (req, res) {
 
-        //!hasPermission(req.body.accessToken, "users.get", req, res);
+        // !hasPermission(req.body.accessToken, "users.get", req, res);
 
-        Users.find(function (err, users) {
+        let user_id = req.params.id;
+
+        Users.findById({ _id: user_id }, function (err, users) {
 
             if (err) {
                 return res.status(400).send(err);
