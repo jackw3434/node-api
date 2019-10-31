@@ -17,6 +17,7 @@ let auth = {
         secret: authConfig.jwtSecret,
         userProperty: 'tokenData',
         getToken: getTokenFromHeaders,
+        credentialsRequired: true
     }),
     optional: jwtMiddleware({
         secret: authConfig.jwtSecret,
