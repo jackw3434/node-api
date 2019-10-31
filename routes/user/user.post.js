@@ -6,10 +6,7 @@ module.exports = function (router) {
 
         var user = new User(req.body);
 
-        let request = req.body;
-
-        user.password = auth.hashPassword(request.password);
-
+        user.password = auth.hashPassword(req.body.password);
 
         user.save(function (err, newUser) {
 

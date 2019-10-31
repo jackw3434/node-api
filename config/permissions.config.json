@@ -5,16 +5,14 @@
             "user.get": true,
             "user.put": true,
             "users.get": true,
-            "user.post": true,
-            "user.me.get": true
+            "user.post": true
         },
         "admin": {
             "user.delete": true,
             "user.get": true,
             "user.put": true,
             "users.get": true,
-            "user.post": true,
-            "user.me.get": true
+            "user.post": true
         }
     }
 }

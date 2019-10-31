@@ -24,6 +24,7 @@ router.use(allowCrossDomain);
 //endpoint routes
 
 require('./routes/user/index')(router);
+require('./routes/identity/index')(router);
 
 app.use('/api', router);
 
