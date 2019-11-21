@@ -1,15 +1,17 @@
-let Users = require('../../models/user');
+let User = require('../../models/user');
 
 module.exports = function (router) {
     router.route('/users/:id').put(function (req, res) {
 
-        Users.findById({ _id: req.params.id }, function (err, user) {
+        User.findById({ _id: req.params.id }, function (err, user) {
 
             if (err) {
                 return res.status(400).send(err);
             }
-
+         console.log(req.body, user);
             user.name = req.body.name;
+            user.email = req.body.email;
+            user.password = req.body.password;
 
             user.save(function (err, editedUser) {
 

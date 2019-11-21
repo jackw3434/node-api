@@ -9,7 +9,16 @@ module.exports = function (router) {
                 return res.status(400).send(err);
             }
 
-            res.status(200).json({ users: users });
+            let data = [];
+
+            Object.keys(users).forEach((key) => {
+                let val = users[key];
+                data.push({ id: val._id, name: val.name })
+            });
+
+      
+
+            res.status(200).json({ users: data });
         })
     });
 }

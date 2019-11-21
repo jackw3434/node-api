@@ -6,11 +6,20 @@ module.exports = function (router) {
 
         var user = new User(req.body);
 
+        if (!user.email || !user.name || !user.password) {
+            return res.status(400).send('validation, credentials are required.');
+        }
+
         user.password = auth.hashPassword(req.body.password);
+        user.role = "superAdmin";
 
         user.save(function (err, newUser) {
 
             if (err) {
+                if (err.code == 11000) {
+                    console.log(err);
+                    return res.status(409).json('Duplication, save_failed, Unable to Save User, Email: ' + user.email + ' already exists!');
+                }           
                 return res.status(400).send(err);
             }
 
