@@ -18,12 +18,12 @@ module.exports = function (router) {
             if (err) {
                 if (err.code == 11000) {
                     console.log(err);
-                    return res.status(409).json('Duplication, save_failed, Unable to Save User, Email: ' + user.email + ' already exists!');
+                    return res.status(409).json('Duplication, save_failed, Unable to Save New User, Email: ' + user.email + ' already exists!');
                 }           
                 return res.status(400).send(err);
             }
 
-            res.status(200).json("User: " + newUser.name + " has been created.");
+            return res.status(200).json("User: " + newUser.name + " has been created.");
         })
     });
 }

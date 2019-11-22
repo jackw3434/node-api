@@ -6,7 +6,7 @@ module.exports = function (router) {
         Users.find(function (err, users) {
 
             if (err) {
-                return res.status(400).send(err);
+                return res.status(400).send('Generic_Error, getUsers_failed, Unable to Get Users');
             }
 
             let data = [];
@@ -18,7 +18,7 @@ module.exports = function (router) {
 
       
 
-            res.status(200).json({ users: data });
+            return res.status(200).json({ users: data });
         })
     });
 }
