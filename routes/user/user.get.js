@@ -5,8 +5,8 @@ let hasPermission = require('../../utils/hasPermission');
 
 module.exports = function (router) {
     router.route('/users/:id').get(auth.required, function (req, res) {
-
-        if (!hasPermission(req.tokenData, "users.get", req, res)) return;
+  
+        //if (!hasPermission(req.tokenData, "users.get", req, res)) return;
         
         Users.findById({ _id: req.params.id }, function (err, user) {
 

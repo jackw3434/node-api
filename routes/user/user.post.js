@@ -2,12 +2,12 @@ let User = require('../../models/user');
 let auth = require('../../utils/auth');
 
 module.exports = function (router) {
-    router.route('/users').post(function (req, res) {
+    router.route('/users').post(auth.optional, function (req, res) {
 
         var user = new User(req.body);
 
         if (!user.email || !user.name || !user.password) {
-            return res.status(400).send('validation, credentials are required.');
+            return res.status(400).send('validation_error, credentials are required.');
         }
 
         user.password = auth.hashPassword(req.body.password);
@@ -19,7 +19,7 @@ module.exports = function (router) {
                 if (err.code == 11000) {
                     console.log(err);
                     return res.status(409).json('Duplication, save_failed, Unable to Save New User, Email: ' + user.email + ' already exists!');
-                }           
+                }
                 return res.status(400).send(err);
             }
 
