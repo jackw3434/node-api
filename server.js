@@ -1,12 +1,24 @@
 let express = require('express');
 let app = express();
+var http = require('http').Server(app);
 let bodyParser = require('body-parser');
 let port = process.env.PORT || 8080;
 let router = express.Router();
+let io = require('socket.io')(7000);
 let connectionString = require('./config/connectionString').connectionString;
 let initMongoose = require('./init/init-mongoose');
 
 initMongoose.connectToMongoose(connectionString);
+
+io.on('connection', socket => {
+    console.log("Client Connected")
+    socket.on('send-chat-message', message => {    
+        socket.broadcast.emit('chat-message', message);
+    }) 
+      socket.on("disconnect", () => console.log("Client disconnected"));
+})
+
+
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -28,6 +40,8 @@ require('./routes/identity/index')(router);
 
 app.use('/api', router);
 
-app.listen(port);
+app.listen(port, () => {
+    console.log("Server is running on port: ", port);
+});
 
 

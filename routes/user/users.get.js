@@ -8,7 +8,7 @@ module.exports = function (router) {
             if (err) {
                 return res.status(400).send('Generic_Error, getUsers_failed, Unable to Get Users');
             }
-            console.log(users);
+            //console.log(users);
 
             let data = [];
 
