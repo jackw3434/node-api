@@ -10,12 +10,24 @@ let initMongoose = require('./init/init-mongoose');
 
 initMongoose.connectToMongoose(connectionString);
 
+let users = {};
+
 io.on('connection', socket => {
-    console.log("Client Connected")
-    socket.on('send-chat-message', message => {    
-        socket.broadcast.emit('chat-message', message);
-    }) 
-      socket.on("disconnect", () => console.log("Client disconnected"));
+    console.log("Client Connected to group")
+    socket.on("new-user", name => {
+        users[socket.id] = name;
+        socket.broadcast.emit("user-connected", name)
+        console.log("user", name, "Connected")
+    })
+
+    socket.on('send-chat-message', message => {
+        socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] });
+    })
+    socket.on("disconnect", () => {
+        socket.broadcast.emit("user-disconnected", users[socket.id]);
+        delete users[socket.id];
+        console.log("Client disconnected")
+    });
 })
 
 
