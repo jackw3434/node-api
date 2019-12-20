@@ -17,7 +17,7 @@ module.exports = function (router) {
 
                 let accessToken = auth.generateAccessToken(user[0]);
 
-                return res.status(200).json({ successMessege: "User Logged In", accessToken: accessToken });
+                return res.status(200).json({ successMessege: "User Logged In", accessToken: "Token "+ accessToken, user: user });
 
             } else {
 

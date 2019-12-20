@@ -13,6 +13,13 @@
             "user.put": true,
             "users.get": true,
             "user.post": true
+        },
+        "user": {
+            "user.delete": true,
+            "user.get": true,
+            "user.put": true,
+            "users.get": true,
+            "user.post": true
         }
     }
 }
