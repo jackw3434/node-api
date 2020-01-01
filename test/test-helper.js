@@ -6,7 +6,6 @@ let User = require('../models/user');
 let baseURL = 'http://localhost:8080/api/';
 let auth = require('../utils/auth');
 
-
 let mongooseConnect = async function () {
     await initMongoose.connectToMongoose(connectionString);
 };
@@ -30,7 +29,7 @@ let testHelper = {
                     frisby.globalSetup({
                         request: {
                             headers: {
-                                'Authorization': "Token " + token,
+                                'Authorization': token,
                                 'Content-Type': 'application/json',
                             }
                         }
@@ -72,7 +71,7 @@ let populateUsersCollection = async function () {
     await user2.save();
 
     let user3 = new User({
-        _id: new mongoose.Types.ObjectId("8c835ce289db541d3cdc4183"),
+        _id: new mongoose.Types.ObjectId("64706e408463696b3232a513"),
         name: "James",
         email: "james.test@gmail.com",
         password: auth.hashPassword("test123"),

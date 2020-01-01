@@ -21,7 +21,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon --inspect server.js",
-    "test": "jest --verbose --detectOpenHandles --runInBand  --coverage",
+    "test": "jest --verbose --detectOpenHandles --runInBand --coverage",
     "test-runner":"npm run dev & npm run test"
   },
   "author": "",
