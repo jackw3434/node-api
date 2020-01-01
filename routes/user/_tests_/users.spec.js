@@ -1,8 +1,8 @@
 const frisby = require('frisby');
-let baseURL = 'http://localhost:8080/api/';
+let port = require('../../../config/connectionString').serverPort;
+let baseURL = 'http://localhost:' + port + '/api/';
 //let User = require('../../../models/user');
 let testHelper = require('../../../test/test-helper');
-let mongoose = require('mongoose');
 
 describe('users test', function () {
 
@@ -36,9 +36,7 @@ describe('users test', function () {
             return frisby
                 .get(baseURL + 'users')
                 .then(function (res) {
-                    expect(res.status).toBe(200);
-                    mongoose.disconnect();
-                    console.log("disconnected");
+                    expect(res.status).toBe(200);          
                 })
         });
     })

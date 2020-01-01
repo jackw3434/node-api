@@ -3,7 +3,8 @@ let mongoose = require('mongoose');
 let connectionString = require('../config/connectionString').connectionString;
 let initMongoose = require('../init/init-mongoose');
 let User = require('../models/user');
-let baseURL = 'http://localhost:8080/api/';
+let port = require('../config/connectionString').serverPort;
+let baseURL = 'http://localhost:'+ port +'/api/';
 let auth = require('../utils/auth');
 
 let mongooseConnect = async function () {

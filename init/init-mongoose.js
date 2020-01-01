@@ -4,7 +4,7 @@ module.exports = {
     connectToMongoose: function (connectionString) {
         const option = {
             socketTimeoutMS: 30000,
-            //keepAlive: true,
+            keepAlive: true,
             reconnectTries: 30000,
             useCreateIndex: true,
             useNewUrlParser: true,
@@ -17,7 +17,7 @@ module.exports = {
                 console.log('Retrying Database Connection');
                 this.connectToMongoose();
             }
-            console.log("Database Connected", connectionString);            
+            console.log("Database Connected", connectionString);
         });
     }, mongoose
 }
