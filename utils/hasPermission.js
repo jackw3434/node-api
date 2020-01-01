@@ -1,9 +1,9 @@
 let permissionsConfig = require("../config/permissions.config.json");
 
 function rejectRequest(res) {
-    let messege = "Permission denied.";
+    let message = "Permission denied.";
     let statusCode = 403;
-    res.status(statusCode).send(messege);
+    res.status(statusCode).send(message);
 }
 
 module.exports = function (tokenData, permissionKey, req, res, ) {

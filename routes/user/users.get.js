@@ -8,16 +8,8 @@ module.exports = function (router) {
             if (err) {
                 return res.status(400).send('Generic_Error, getUsers_failed, Unable to Get Users');
             }
-            //console.log(users);
-
-            let data = [];
-
-            Object.keys(users).forEach((key) => {
-                let val = users[key];
-                data.push({ id: val._id, name: val.name })
-            });      
-
-            return res.status(200).json({ users: data });
+                        
+            return res.status(200).json({ users: users });
         })
     });
 }
