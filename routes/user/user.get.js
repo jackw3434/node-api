@@ -4,7 +4,7 @@ let hasPermission = require('../../utils/hasPermission');
 
 
 module.exports = function (router) {
-    router.route('/users/:id').get(auth.required, function (req, res) {
+    router.route('/user/:id').get(auth.required, function (req, res) {
   
         //if (!hasPermission(req.tokenData, "users.get", req, res)) return;
         
@@ -14,9 +14,7 @@ module.exports = function (router) {
                 return res.status(400).send(err);
             }
 
-            let accessToken = auth.generateAccessToken(user);
-
-            res.status(200).json({ user: user, accessToken: accessToken });
+            res.status(200).json({ user: user });
         })
     });
 }
