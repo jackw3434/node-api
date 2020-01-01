@@ -1,6 +1,6 @@
 const frisby = require('frisby');
 let baseURL = 'http://localhost:8080/api/';
-let User = require('../../../models/user');
+//let User = require('../../../models/user');
 let testHelper = require('../../../test/test-helper');
 
 describe('users test', function () {
