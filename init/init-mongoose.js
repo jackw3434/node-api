@@ -4,7 +4,7 @@ module.exports = {
     connectToMongoose: function (connectionString) {
         const option = {
             socketTimeoutMS: 30000,
-            keepAlive: true,
+            //keepAlive: true,
             reconnectTries: 30000,
             useCreateIndex: true,
             useNewUrlParser: true,
