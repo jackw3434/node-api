@@ -22,7 +22,7 @@
     "start": "node server.js",
     "dev": "nodemon --inspect server.js",
     "test": "jest --verbose --detectOpenHandles --runInBand  --coverage",
-    "test-runner":"npm run start & npm run test"
+    "test-runner":"npm run dev & npm run test"
   },
   "author": "",
   "license": "ISC"

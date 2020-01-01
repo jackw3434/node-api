@@ -71,5 +71,15 @@ let populateUsersCollection = async function () {
 
     await user2.save();
 
+    let user3 = new User({
+        _id: new mongoose.Types.ObjectId("8c835ce289db541d3cdc4183"),
+        name: "James",
+        email: "james.test@gmail.com",
+        password: auth.hashPassword("test123"),
+        role: "superAdmin"
+    });
+
+    await user3.save();
+
     console.log("Populated");
 };
