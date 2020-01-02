@@ -6,9 +6,11 @@ let User = require('../models/user');
 let port = require('../config/connectionString').serverPort;
 let baseURL = 'http://localhost:'+ port +'/api/';
 let auth = require('../utils/auth');
+let server = require('../server');
 
-let mongooseConnect = function () {
-    initMongoose.connectToMongoose(connectionString);
+let mongooseConnect = async function () {
+    //await initMongoose.connectToMongoose(connectionString);
+    server;
 };
 
 let prepareUsers = async function () {

@@ -3,7 +3,6 @@ let port = require('../../../config/connectionString').serverPort;
 let baseURL = 'http://localhost:' + port + '/api/';
 //let User = require('../../../models/user');
 let testHelper = require('../../../test/test-helper');
-let mongoose = require('../../../init/init-mongoose').mongoose;
 
 describe('users test', function () {
 
@@ -37,10 +36,7 @@ describe('users test', function () {
             return frisby
                 .get(baseURL + 'users')
                 .then(function (res) {
-                    expect(res.status).toBe(200);                    
-                    mongoose.disconnect();
-                    console.log("disconnected");
-                    
+                    expect(res.status).toBe(200);                                     
                 })
         });
     })
