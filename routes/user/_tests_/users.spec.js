@@ -3,7 +3,6 @@ let port = require('../../../config/connectionString').serverPort;
 let baseURL = 'http://localhost:' + port + '/api/';
 //let User = require('../../../models/user');
 let testHelper = require('../../../test/test-helper');
-let mongoose = require('../../../init/init-mongoose').mongoose;
 
 describe('users test', function () {
 
