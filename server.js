@@ -7,6 +7,7 @@ let router = express.Router();
 let io = require('socket.io')(7000);
 let connectionString = require('./config/connectionString').connectionString;
 let initMongoose = require('./init/init-mongoose');
+let mongoose = require('./init/init-mongoose').mongoose;
 
 initMongoose.connectToMongoose(connectionString);
 
@@ -53,7 +54,7 @@ require('./routes/identity/index')(router);
 app.use('/api', router);
 
 app.listen(port, () => {
-    console.log("Server is running on port: ", port);
+    console.log("Server is running on port: ", port);   
 });
 
 

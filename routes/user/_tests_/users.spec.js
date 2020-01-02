@@ -39,7 +39,8 @@ describe('users test', function () {
                 .then(function (res) {
                     expect(res.status).toBe(200);                    
                     mongoose.disconnect();
-                    console.log("disconnected");                    
+                    console.log("disconnected");
+                    
                 })
         });
     })

@@ -17,7 +17,7 @@ module.exports = {
                 console.log('Retrying Database Connection');
                 this.connectToMongoose();
             }
-            console.log("Database Connected", connectionString);
+            console.log("Database Connected", connectionString);           
         });
     }, mongoose
 }
