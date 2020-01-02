@@ -7,8 +7,8 @@ let port = require('../config/connectionString').serverPort;
 let baseURL = 'http://localhost:'+ port +'/api/';
 let auth = require('../utils/auth');
 
-let mongooseConnect = async function () {
-    await initMongoose.connectToMongoose(connectionString);
+let mongooseConnect = function () {
+    initMongoose.connectToMongoose(connectionString);
 };
 
 let prepareUsers = async function () {
