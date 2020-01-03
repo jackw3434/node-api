@@ -9,7 +9,6 @@ let auth = require('../utils/auth');
 let server = require('../server');
 
 let mongooseConnect = async function () {
-    //await initMongoose.connectToMongoose(connectionString);
     server;
 };
 
@@ -55,7 +54,8 @@ let populateUsersCollection = async function () {
 
     let user = new User({
         _id: new mongoose.Types.ObjectId("06a9fab994a0eef9618e9d58"),
-        name: "Jack",
+        first_name: "Jack",
+        surname: "Williams",
         email: "jack.test@gmail.com",
         password: auth.hashPassword("test123"),
         role: "superAdmin"
@@ -65,7 +65,8 @@ let populateUsersCollection = async function () {
 
     let user2 = new User({
         _id: new mongoose.Types.ObjectId("8c835ce289db541d3cdc4183"),
-        name: "John",
+        first_name: "John",
+        surname: "Test",
         email: "john.test@gmail.com",
         password: auth.hashPassword("test123"),
         role: "superAdmin"
@@ -75,7 +76,8 @@ let populateUsersCollection = async function () {
 
     let user3 = new User({
         _id: new mongoose.Types.ObjectId("64706e408463696b3232a513"),
-        name: "James",
+        first_name: "James",
+        surname: "Test",
         email: "james.test@gmail.com",
         password: auth.hashPassword("test123"),
         role: "superAdmin"

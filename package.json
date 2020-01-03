@@ -21,7 +21,7 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon --inspect server.js",
-    "test": "jest --verbose --detectOpenHandles --runInBand --coverage --forceExit",
+    "test": "jest --verbose --detectOpenHandles --runInBand --coverage",
     "ci-test": "jest --detectOpenHandles --forceExit"
   },
   "author": "",

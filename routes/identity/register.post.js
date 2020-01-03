@@ -4,10 +4,9 @@ let auth = require('../../utils/auth');
 module.exports = function (router) {
     router.route('/register').post(auth.optional, function (req, res) {
 
-
         var user = new User(req.body);
 
-        if (!user.email || !user.name || !user.password) {
+        if (!user.email || !user.first_name || !user.surname || !user.password) {
             return res.status(400).send('validation_error, credentials are required.');
         }
 
@@ -24,7 +23,7 @@ module.exports = function (router) {
                 return res.status(400).send(err);
             }
             console.log("new user registerd ", newUser);
-            return res.status(200).json("User: " + newUser.name + " has been created.");
+            return res.status(200).json("User: " + newUser.first_name + " has been created.");
         })
     });
 }
