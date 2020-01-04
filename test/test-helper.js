@@ -3,6 +3,7 @@ let mongoose = require('mongoose');
 let connectionString = require('../config/connectionString').connectionString;
 let initMongoose = require('../init/init-mongoose');
 let User = require('../models/user');
+let FrienRequest = require('../models/friendRequest');
 let port = require('../config/connectionString').serverPort;
 let baseURL = 'http://localhost:'+ port +'/api/';
 let auth = require('../utils/auth');
@@ -15,6 +16,12 @@ let mongooseConnect = async function () {
 let prepareUsers = async function () {
     await emptyUsersCollection();
     await populateUsersCollection();
+};
+
+let emptyFriendRequests = async function () {
+    console.log("Deleting");
+    await FrienRequest.deleteMany().exec();
+    console.log("Deleted");
 };
 
 let testHelper = {
@@ -39,6 +46,7 @@ let testHelper = {
                 })
         },
     prepareUsersCollection: prepareUsers,
+    emptyFriendRequestCollection: emptyFriendRequests,
     init: mongooseConnect
 };
 
