@@ -1,9 +1,9 @@
 let FriendRequest = require('../../models/friendRequest');
 let User = require('../../models/user');
 let mongoose = require("mongoose");
-
+let auth = require('../../utils/auth');
 module.exports = function (router) {
-    router.route('/friendRequest/:id').get( function (req, res) {
+    router.route('/friendRequest/:id').get(auth.required, function (req, res) {
 
         FriendRequest.findById({ _id: req.params.id }, function (err, friendRequest) {
 

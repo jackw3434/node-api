@@ -23,12 +23,7 @@ io.on('connection', socket => {
 
     socket.on('send-chat-message', message => {
         socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] });
-    })
-
-    socket.on('logout', () => {
-        console.log("Client disconnected", users[socket.id])
-        delete users[socket.id];
-    })
+    }) 
 
     socket.on("disconnect", () => {
         socket.broadcast.emit("user-disconnected", users[socket.id]);
@@ -36,7 +31,6 @@ io.on('connection', socket => {
         delete users[socket.id];
     });
 })
-
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -55,8 +49,10 @@ router.use(allowCrossDomain);
 //endpoint routes
 
 require('./routes/user/index')(router);
-require('./routes/friend-request/index')(router);
 require('./routes/identity/index')(router);
+require('./routes/identity/me/index')(router);
+require('./routes/friend-request/index')(router);
+require('./routes/friendsList/index')(router);
 
 app.use('/api', router);
 

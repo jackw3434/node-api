@@ -1,18 +1,15 @@
-let User = require('../../models/user');
-let auth = require('../../utils/auth');
+let User = require('../../../models/user');
+let auth = require('../../../utils/auth');
 
 module.exports = function (router) {
-    router.route('/users').post(auth.required, function (req, res) {
+    router.route('/users/me').post(auth.required, function (req, res) {
 
         var user = new User(req.body);
 
         if (!user.email || !user.first_name || !user.surname || !user.password) {
             return res.status(400).send('validation_error, credentials are required.');
         }
-
-        user.password = auth.hashPassword(req.body.password);
-        user.role = "superAdmin";
-
+     
         user.save(function (err, newUser) {
 
             if (err) {

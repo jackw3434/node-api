@@ -4,7 +4,7 @@ let crypto = require('crypto');
 let authConfig = require("../config/auth");
 let accessTokenTime = require('../config/auth').accessTokenTime;
 
-let getTokenFromHeaders = (req) => {
+let getTokenFromHeaders = (req) => { 
     let { headers: { authorization } } = req;
     if (authorization && authorization.split(' ')[0] === 'Token') {
         return authorization.split(' ')[1];
