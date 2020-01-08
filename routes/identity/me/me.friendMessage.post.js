@@ -1,26 +1,33 @@
 let User = require('../../../models/user');
+let FriendsList = require('../../../models/friendsList');
 let auth = require('../../../utils/auth');
 
 module.exports = function (router) {
-    router.route('/users/me').post(auth.required, function (req, res) {
+    router.route('/friend/sendMessage').post(auth.required, function (req, res) {
 
-        var user = new User(req.body);
+        //take the frienship id and post message to db
 
-        if (!user.email || !user.first_name || !user.surname || !user.password) {
-            return res.status(400).send('validation_error, credentials are required.');
-        }
-     
-        user.save(function (err, newUser) {
+
+
+        let frienshipID = req.body.frienshipID;
+        let messageToSend = req.body.messageToSend;
+        FriendsList.findById(frienshipID, function (err, friendList) {
 
             if (err) {
-                if (err.code == 11000) {
-                    console.log(err);
-                    return res.status(409).json('Duplication, save_failed, Unable to Save New User, Email: ' + user.email + ' already exists!');
-                }
+
                 return res.status(400).send(err);
             }
 
-            return res.status(200).json("User: " + newUser.first_name + " has been created.");
+            friendList.messageLog.push(messageToSend)
+           
+            friendList.save(function (err, newMessage) {
+                console.log("newMessage ", newMessage);
+                if (err) {
+                    return res.status(400).send(err);
+                }
+
+                return res.status(200).json("Message Sent");
+            })
         })
     });
 }
