@@ -35,10 +35,10 @@ module.exports = function (router) {
                 User.find({ 'email': { $in: [friendToInvite, sender] } }, function (err, users) {
 
                     if (err || !users[0] || users[0].length == 0) {
-                        return res.status(400).send('Validation_error,aaa No email matching for ' + friendToInvite);
+                        return res.status(400).send('Validation_error, No email matching for ' + friendToInvite);
                     }
                     if (err || !users[1] || users[1].length == 1) {
-                        return res.status(400).send('Validation_error,bbb No email matching for ' + sender);
+                        return res.status(400).send('Validation_error, No email matching for ' + sender);
                     }
 
                     let requestSender;
@@ -52,6 +52,7 @@ module.exports = function (router) {
 
                         if (err) {
                             if (err.code == 11000) {
+                                console.log(err);
                                 return res.status(409).send('friend_request_rejection_error, A Friend Request to ' + friendToInvite + ' has already been made.');
                             }
                             return res.status(400).send(err);

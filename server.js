@@ -13,6 +13,8 @@ initMongoose.connectToMongoose(connectionString);
 
 let users = {};
 
+
+
 io.on('connection', socket => {
     console.log("Client Connected to group")
     socket.on("new-user", name => {
@@ -21,9 +23,28 @@ io.on('connection', socket => {
         console.log("user", name, "Connected")
     })
 
+    socket.on('create', room => {
+        console.log("room ", room);
+        socket.join(room);
+        console.log("sockets sdsad", io.sockets.adapter.rooms);
+    });
+
+    socket.on('join', room => {
+
+             
+
+        console.log("room to join", room);
+        socket.join(room);
+      
+        console.log("here ss", io.sockets.adapter.rooms.room);
+    });
+
     socket.on('send-chat-message', message => {
+        //    console.log(socket._id ==  users[socket.id]);
+             console.log(message, users, Object.keys(users), socket.id);
+        //  io.to(socket.id).emit({ message: 'for your eyes only', name: users[socket.id] });
         socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] });
-    }) 
+    })
 
     socket.on("disconnect", () => {
         socket.broadcast.emit("user-disconnected", users[socket.id]);
