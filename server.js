@@ -17,17 +17,57 @@ io.on('connection', socket => {
     console.log("Client Connected to group")
     socket.on("new-user", name => {
         users[socket.id] = name;
-        socket.broadcast.emit("user-connected", name)
+        //socket.broadcast.emit("user-connected", name)
         console.log("user", name, "Connected")
     })
 
-    socket.on('send-chat-message', message => {
-        socket.broadcast.emit('chat-message', { message: message, name: users[socket.id] });
-    })
+    socket.on('create', room => {
+        console.log("creat room ", room);
+        socket.join(room);
+    });
 
-    socket.on('logout', () => {
-        console.log("Client disconnected", users[socket.id])
-        delete users[socket.id];
+    socket.on('join', (room, whoJoined) => {
+
+        if (io.sockets.adapter.rooms[room] && io.sockets.adapter.rooms[room].length >= 2 && io.sockets.adapter.rooms[room].socket != socket.id) {
+            console.log("2 users, cannot join");
+            socket.leave(room);
+        } else {
+
+            socket.join(room);
+            let mySocketID = socket.id;
+            let socketIdOfuserToSendTo;
+            if (io.sockets.adapter.rooms[room].sockets) {
+
+                let listOfSockets = Object.keys(io.sockets.adapter.rooms[room].sockets);
+
+                listOfSockets.map(id => {
+                    if (id != mySocketID) {
+                        socketIdOfuserToSendTo = id;
+                    }
+                })
+
+                io.to(socketIdOfuserToSendTo).emit('message', { message: whoJoined + " has joined you.", name: users[socket.id] });
+            }
+        }
+    });
+
+    socket.on('leave-room', (room) => {
+        socket.leave(room)
+    });
+
+    socket.on('send-chat-message', (message, whoTo) => {
+
+        let mySocketID = socket.id;
+        let socketIdOfuserToSendTo;
+        let listOfSockets = Object.keys(io.sockets.adapter.rooms[whoTo].sockets);
+
+        listOfSockets.map(id => {
+            if (id != mySocketID) {
+                socketIdOfuserToSendTo = id;
+            }
+        })
+     
+        io.to(socketIdOfuserToSendTo).emit('message', { message: message, name: users[socket.id] });
     })
 
     socket.on("disconnect", () => {
@@ -36,7 +76,6 @@ io.on('connection', socket => {
         delete users[socket.id];
     });
 })
-
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -55,8 +94,10 @@ router.use(allowCrossDomain);
 //endpoint routes
 
 require('./routes/user/index')(router);
-require('./routes/friend-request/index')(router);
 require('./routes/identity/index')(router);
+require('./routes/identity/me/index')(router);
+require('./routes/friend-request/index')(router);
+require('./routes/friendsList/index')(router);
 
 app.use('/api', router);
 

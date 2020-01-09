@@ -56,7 +56,7 @@ module.exports = function (router) {
                 })
 
                 return res.status(200).json("Friend Request: " + newFriendRequest + " has been created.");
-            })
+            })        
         })
     });
 }

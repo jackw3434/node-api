@@ -1,8 +1,8 @@
-let User = require('../../models/user');
-let auth = require('../../utils/auth');
+let User = require('../../../models/user');
+let auth = require('../../../utils/auth');
 
 module.exports = function (router) {
-    router.route('/users/:id').put(auth.required, function (req, res) {
+    router.route('/users/me/:id').put(auth.required, function (req, res) {
 
         User.findById({ _id: req.params.id }, function (err, user) {
 

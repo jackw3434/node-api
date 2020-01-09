@@ -9,6 +9,7 @@ describe('users test', function () {
     beforeAll(async (done) => {
         await testHelper.init();
         await testHelper.emptyFriendRequestCollection();
+        await testHelper.emptyFriendsListsCollection();
         await testHelper.prepareUsersCollection();
         await testHelper.loginsuperAdmin();
         return done();

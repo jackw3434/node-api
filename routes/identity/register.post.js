@@ -22,7 +22,7 @@ module.exports = function (router) {
                 }
                 return res.status(400).send(err);
             }
-            console.log("new user registerd ", newUser);
+            
             return res.status(200).json("User: " + newUser.first_name + " has been created.");
         })
     });

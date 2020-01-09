@@ -1,8 +1,8 @@
-let User = require('../../models/user');
-let auth = require('../../utils/auth');
+let User = require('../../../models/user');
+let auth = require('../../../utils/auth');
 
 module.exports = function (router) {
-    router.route('/users/:id').delete(auth.required, function (req, res) {
+    router.route('/users/me/:id').delete(auth.required, function (req, res) {
       
         User.deleteOne({ _id: req.params.id }, function (err, result) {
 
