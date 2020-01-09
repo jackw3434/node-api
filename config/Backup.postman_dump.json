@@ -1,0 +1,854 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "8834e964-4f73-4816-84bd-ba13a259b579",
+			"name": "node-api",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"variables": [],
+			"order": [],
+			"folders_order": [
+				"8536a3b1-bfb5-4773-8551-ad38c158ea7e",
+				"9611ee2b-815d-4a73-8f01-c8ea9f71d286",
+				"8b8586e4-903e-4fb9-b212-80fd9db491ff",
+				"449393fa-f391-49e2-a5f6-973011aee7ea"
+			],
+			"protocolProfileBehavior": {},
+			"folders": [
+				{
+					"id": "9611ee2b-815d-4a73-8f01-c8ea9f71d286",
+					"name": "chat to friend",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folder": null,
+					"order": [
+						"5d4ea240-b8ed-4c58-87b1-5dd2dd0594f9",
+						"2ec76a0e-0197-463e-b8b5-81d2112f5925",
+						"d789117d-22cd-45bb-b887-2b6936de28f6"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folderId": "9611ee2b-815d-4a73-8f01-c8ea9f71d286"
+				},
+				{
+					"id": "449393fa-f391-49e2-a5f6-973011aee7ea",
+					"name": "friend-list",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folder": null,
+					"order": [
+						"fb2ec7c2-fbb0-404e-9638-928d521ddfec",
+						"7e132332-f9c8-457b-ba28-61701b6b590d",
+						"5a3517d9-67e7-45ce-916c-d6df1d5d580e",
+						"fb4acc40-44f9-4252-a63a-fcfb0a86e7e4",
+						"e74fc715-97f1-482a-a796-db3ea448992d"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folderId": "449393fa-f391-49e2-a5f6-973011aee7ea"
+				},
+				{
+					"id": "8b8586e4-903e-4fb9-b212-80fd9db491ff",
+					"name": "friend-requests",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folder": null,
+					"order": [
+						"2432b181-6db0-40c3-aeb7-68efaebc7a9d",
+						"298d7c06-4df7-4dd0-bef8-c3524cec41d6",
+						"a2a5fda9-ab3a-4d7b-8eb7-6085bef5f6a1",
+						"56d2beb3-3897-41b5-bbf6-dda61036dcca",
+						"c2ffe788-5b51-4869-96e5-76e2a52b74a6"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folderId": "8b8586e4-903e-4fb9-b212-80fd9db491ff"
+				},
+				{
+					"id": "8536a3b1-bfb5-4773-8551-ad38c158ea7e",
+					"name": "users",
+					"description": "",
+					"auth": null,
+					"events": null,
+					"collection": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folder": null,
+					"order": [
+						"f04bb9f0-64b1-49d2-b468-03e3b646305a",
+						"7aab6cb1-7e01-4508-a39e-f0f47adf13d2",
+						"517d344a-8f96-486c-8d0f-7b528f12e422"
+					],
+					"folders_order": [],
+					"protocolProfileBehavior": {},
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"folderId": "8536a3b1-bfb5-4773-8551-ad38c158ea7e"
+				}
+			],
+			"requests": [
+				{
+					"id": "2432b181-6db0-40c3-aeb7-68efaebc7a9d",
+					"name": "friend-request.post",
+					"url": "http://localhost:8000/api/friendRequest",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						},
+						{
+							"key": "Authorization",
+							"value": "{{accessToken}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "8b8586e4-903e-4fb9-b212-80fd9db491ff",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "{\n\n\t\"sender\": \"a\",\n\t\"receiver\": \"dave.test@gmail.com\"\n\t\n}",
+					"headers": "Content-Type: application/json\nAuthorization: {{accessToken}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "298d7c06-4df7-4dd0-bef8-c3524cec41d6",
+					"name": "friend-request.get",
+					"url": "http://localhost:8000/api/friendRequest",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "8b8586e4-903e-4fb9-b212-80fd9db491ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "2ec76a0e-0197-463e-b8b5-81d2112f5925",
+					"name": "users.get by ID",
+					"url": "http://localhost:8000/api/user/06a9fab994a0eef9618e9d58",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "{{accessToken}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "49bcd24e-b37d-4ae5-aec7-4115c36a2fb2",
+								"exec": [
+									"pm.sendRequest({",
+									"    url: \"http://localhost:8000/api/login\",",
+									"    method: 'POST',",
+									"    header: 'Content-Type:application/json',",
+									"    body: {",
+									"        mode: 'application/json',",
+									"        raw: JSON.stringify(",
+									"        {",
+									"         email: \"jack.test@gmail.com\",",
+									"         password: \"test123\"",
+									"        })",
+									"  }",
+									"}, function (err, res) {",
+									"    console.log(\"sdfsdf \",res.json());",
+									"    pm.environment.set(\"accessToken\", res.json().accessToken);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c30038b5-ec3d-40e9-b0f8-d115bc9f9683",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "9611ee2b-815d-4a73-8f01-c8ea9f71d286",
+					"preRequestScript": "pm.sendRequest({\n    url: \"http://localhost:8000/api/login\",\n    method: 'POST',\n    header: 'Content-Type:application/json',\n    body: {\n        mode: 'application/json',\n        raw: JSON.stringify(\n        {\n         email: \"jack.test@gmail.com\",\n         password: \"test123\"\n        })\n  }\n}, function (err, res) {\n    console.log(\"sdfsdf \",res.json());\n    pm.environment.set(\"accessToken\", res.json().accessToken);\n});",
+					"tests": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"headers": "Authorization: {{accessToken}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "517d344a-8f96-486c-8d0f-7b528f12e422",
+					"name": "users.post",
+					"url": "http://localhost:8080/api/users",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": "8536a3b1-bfb5-4773-8551-ad38c158ea7e",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "{\n\t\"name\": \"Dave\",\n    \"email\": \"dave.test@gmail.com\",\n    \"password\": \"test123\",\n    \"role\": \"superAdmin\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "56d2beb3-3897-41b5-bbf6-dda61036dcca",
+					"name": "friend-request.delete",
+					"url": "http://localhost:8000/api/friendRequest",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "8b8586e4-903e-4fb9-b212-80fd9db491ff",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "5a3517d9-67e7-45ce-916c-d6df1d5d580e",
+					"name": "friendsList.get by ID",
+					"url": "http://localhost:8000/api/friendsList",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "449393fa-f391-49e2-a5f6-973011aee7ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "5d4ea240-b8ed-4c58-87b1-5dd2dd0594f9",
+					"name": "users.get",
+					"url": "http://localhost:8000/api/users",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": "9611ee2b-815d-4a73-8f01-c8ea9f71d286",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"headers": "",
+					"pathVariables": {}
+				},
+				{
+					"id": "7aab6cb1-7e01-4508-a39e-f0f47adf13d2",
+					"name": "users.get by ID",
+					"url": "http://localhost:8000/api/user/06a9fab994a0eef9618e9d58",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "{{accessToken}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "49bcd24e-b37d-4ae5-aec7-4115c36a2fb2",
+								"exec": [
+									"pm.sendRequest({",
+									"    url: \"http://localhost:8000/api/login\",",
+									"    method: 'POST',",
+									"    header: 'Content-Type:application/json',",
+									"    body: {",
+									"        mode: 'application/json',",
+									"        raw: JSON.stringify(",
+									"        {",
+									"         email: \"jack.test@gmail.com\",",
+									"         password: \"test123\"",
+									"        })",
+									"  }",
+									"}, function (err, res) {",
+									"    console.log(\"sdfsdf \",res.json());",
+									"    pm.environment.set(\"accessToken\", res.json().accessToken);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c30038b5-ec3d-40e9-b0f8-d115bc9f9683",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "8536a3b1-bfb5-4773-8551-ad38c158ea7e",
+					"preRequestScript": "pm.sendRequest({\n    url: \"http://localhost:8000/api/login\",\n    method: 'POST',\n    header: 'Content-Type:application/json',\n    body: {\n        mode: 'application/json',\n        raw: JSON.stringify(\n        {\n         email: \"jack.test@gmail.com\",\n         password: \"test123\"\n        })\n  }\n}, function (err, res) {\n    console.log(\"sdfsdf \",res.json());\n    pm.environment.set(\"accessToken\", res.json().accessToken);\n});",
+					"tests": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"headers": "Authorization: {{accessToken}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "7e132332-f9c8-457b-ba28-61701b6b590d",
+					"name": "friendsList.get",
+					"url": "http://localhost:8000/api/friendsList",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						},
+						{
+							"key": "Authorization",
+							"value": "{{access_token}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0c022274-a716-41b3-bef6-8640ef428629",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "6d88e230-8d2a-4de0-af9f-4e4a085b6807",
+								"exec": [
+									"pm.sendRequest({",
+									"    url: \"http://localhost:8000/api/login\",",
+									"    method: 'POST',",
+									"    header: 'Content-Type:application/json',",
+									"    body: {",
+									"        mode: 'application/json',",
+									"        raw: JSON.stringify(",
+									"        {",
+									"         email: \"jack.test@gmail.com\",",
+									"         password: \"test123\"",
+									"        })",
+									"  }",
+									"}, function (err, res) {",
+									"    console.log(\"sdfsdf \",res.json());",
+									"    pm.environment.set(\"accessToken\", res.json().accessToken);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "449393fa-f391-49e2-a5f6-973011aee7ea",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"preRequestScript": "pm.sendRequest({\n    url: \"http://localhost:8000/api/login\",\n    method: 'POST',\n    header: 'Content-Type:application/json',\n    body: {\n        mode: 'application/json',\n        raw: JSON.stringify(\n        {\n         email: \"jack.test@gmail.com\",\n         password: \"test123\"\n        })\n  }\n}, function (err, res) {\n    console.log(\"sdfsdf \",res.json());\n    pm.environment.set(\"accessToken\", res.json().accessToken);\n});",
+					"tests": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\nAuthorization: {{access_token}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "a2a5fda9-ab3a-4d7b-8eb7-6085bef5f6a1",
+					"name": "friend-request.get by ID",
+					"url": "http://localhost:8000/api/friendRequest",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "8b8586e4-903e-4fb9-b212-80fd9db491ff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "c2ffe788-5b51-4869-96e5-76e2a52b74a6",
+					"name": "friend-request.put",
+					"url": "http://localhost:8000/api/friendRequest/5e112513e2b127553c65bf7d",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "PUT",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "8b8586e4-903e-4fb9-b212-80fd9db491ff",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "{\n\t\"status\": \"Accepted\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "d789117d-22cd-45bb-b887-2b6936de28f6",
+					"name": "users.post",
+					"url": "http://localhost:8080/api/users",
+					"description": null,
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"value": "application/json",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": null,
+					"folder": "9611ee2b-815d-4a73-8f01-c8ea9f71d286",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "{\n\t\"name\": \"Dave\",\n    \"email\": \"dave.test@gmail.com\",\n    \"password\": \"test123\",\n    \"role\": \"superAdmin\"\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "e74fc715-97f1-482a-a796-db3ea448992d",
+					"name": "friendsList.put",
+					"url": "http://localhost:8000/api/friendsList",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "PUT",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "449393fa-f391-49e2-a5f6-973011aee7ea",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "f04bb9f0-64b1-49d2-b468-03e3b646305a",
+					"name": "users.get",
+					"url": "http://localhost:8000/api/users",
+					"description": null,
+					"data": null,
+					"dataOptions": null,
+					"dataMode": null,
+					"headerData": [
+						{
+							"key": "Authorization",
+							"value": "{{accessToken}}",
+							"description": "",
+							"type": "text",
+							"enabled": true
+						}
+					],
+					"method": "GET",
+					"pathVariableData": [],
+					"queryParams": [
+						{
+							"key": "",
+							"value": "",
+							"description": "",
+							"enabled": true
+						}
+					],
+					"auth": null,
+					"events": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "d575d546-7b38-4bb0-b55f-2f93c1d46c55",
+								"exec": [
+									"pm.sendRequest({",
+									"    url: \"http://localhost:8000/api/login\",",
+									"    method: 'POST',",
+									"    header: 'Content-Type:application/json',",
+									"    body: {",
+									"        mode: 'application/json',",
+									"        raw: JSON.stringify(",
+									"        {",
+									"         email: \"jack.test@gmail.com\",",
+									"         password: \"test123\"",
+									"        })",
+									"  }",
+									"}, function (err, res) {",
+									"    console.log(\"sdfsdf \",res.json());",
+									"    pm.environment.set(\"accessToken\", res.json().accessToken);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"folder": "8536a3b1-bfb5-4773-8551-ad38c158ea7e",
+					"preRequestScript": "pm.sendRequest({\n    url: \"http://localhost:8000/api/login\",\n    method: 'POST',\n    header: 'Content-Type:application/json',\n    body: {\n        mode: 'application/json',\n        raw: JSON.stringify(\n        {\n         email: \"jack.test@gmail.com\",\n         password: \"test123\"\n        })\n  }\n}, function (err, res) {\n    console.log(\"sdfsdf \",res.json());\n    pm.environment.set(\"accessToken\", res.json().accessToken);\n});",
+					"tests": null,
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"headers": "Authorization: {{accessToken}}\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "fb2ec7c2-fbb0-404e-9638-928d521ddfec",
+					"name": "friendsList.post (Add Friend)",
+					"url": "http://localhost:8000/api/friendsList",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "POST",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "449393fa-f391-49e2-a5f6-973011aee7ea",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "{\n\n\t\"sender\": \"dave.test@gmail.com\",\n\t\"receiver\": \"james.test@gmail.com\"\n\t\n}\n \"friendObjects\": [{\n        \"first_name\": { type: String, required: true },\n        \"surname\": { type: String, required: true },\n        \"email\": { type: String, required: true, unique: true }\n    }],\n    \"messageLog\": [{\n        \"message_id\": mongoose.Types.ObjectId,\n        \"emailOfMessageSender\": { type: String, required: true },\n        \"nameOfMessageSender\": { type: String, required: true },\n        \"message\": { type: String, required: true },\n        \"date_sent\": { type: Date, default: new Date(), required: true }\n    }]\n}",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				},
+				{
+					"id": "fb4acc40-44f9-4252-a63a-fcfb0a86e7e4",
+					"name": "friendsList.delete",
+					"url": "http://localhost:8000/api/friendsList",
+					"description": "",
+					"data": [],
+					"dataOptions": {
+						"raw": {
+							"language": "json"
+						}
+					},
+					"dataMode": "raw",
+					"headerData": [
+						{
+							"description": "",
+							"key": "Content-Type",
+							"name": "Content-Type",
+							"type": "text",
+							"value": "application/json"
+						}
+					],
+					"method": "DELETE",
+					"pathVariableData": [],
+					"queryParams": [],
+					"auth": null,
+					"events": [],
+					"folder": "449393fa-f391-49e2-a5f6-973011aee7ea",
+					"currentHelper": null,
+					"helperAttributes": null,
+					"collectionId": "8834e964-4f73-4816-84bd-ba13a259b579",
+					"rawModeData": "",
+					"headers": "Content-Type: application/json\n",
+					"pathVariables": {}
+				}
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "903139c2-9b92-48b0-8f8c-a72025b3b74c",
+			"name": "AecorFleet Staging",
+			"values": [
+				{
+					"key": "Provider",
+					"value": "vessels",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "URL",
+					"value": "https://aecor.cbpcc.net",
+					"description": "",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "d15a3d97-88de-4f12-bfa6-daa423f601bb",
+			"name": "accessToken",
+			"values": [
+				{
+					"key": "accessToken",
+					"value": "Token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2VtYWlsIjoiamFjay50ZXN0QGdtYWlsLmNvbSIsInVzZXJfaWQiOiIwNmE5ZmFiOTk0YTBlZWY5NjE4ZTlkNTgiLCJ1c2VyX3JvbGUiOiJzdXBlckFkbWluIiwiZXhwIjoxNTc4NDY1NzA4LCJpYXQiOjE1Nzg0MzU3MDh9.DBwTwOSq6Ln8rRV849KPrSYYoCLD8YI9SXxU_PLqSf4",
+					"enabled": true
+				},
+				{
+					"key": "access_token",
+					"value": "",
+					"enabled": true
+				}
+			]
+		},
+		{
+			"id": "befcaf9d-7e90-4664-a4e6-b064dbf92f28",
+			"name": "Core Blue - globals",
+			"values": []
+		},
+		{
+			"id": "2646016f-1d96-4544-84e6-abdc01af0bf1",
+			"name": "My Workspace - globals",
+			"values": []
+		}
+	],
+	"headerPresets": [],
+	"globals": []
+}
