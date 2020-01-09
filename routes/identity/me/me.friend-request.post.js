@@ -9,7 +9,7 @@ module.exports = function (router) {
 
         let loggedInUser = req.tokenData;
         let userID = mongoose.Types.ObjectId(loggedInUser.user_id);
-
+      
         let newRequest = new FriendRequest(req.body);
         let sender = newRequest.sender;
         let receiver = newRequest.receiver;
@@ -30,8 +30,8 @@ module.exports = function (router) {
 
             if (usersFriendRequests.length == 0) {
 
-                console.log("user has no friend requests, no need to check for duplicates");
-
+                //console.log("user has no friend requests, no need to check for duplicates");
+                
                 User.find({ 'email': { $in: [friendToInvite, sender] } }, function (err, users) {
 
                     if (err || !users[0] || users[0].length == 0) {
@@ -52,7 +52,7 @@ module.exports = function (router) {
 
                         if (err) {
                             if (err.code == 11000) {
-                                console.log(err);
+                                //console.log(err);
                                 return res.status(409).send('friend_request_rejection_error, A Friend Request to ' + friendToInvite + ' has already been made.');
                             }
                             return res.status(400).send(err);
@@ -82,7 +82,7 @@ module.exports = function (router) {
                 })
             } else {
 
-                console.log("users has friend requests, checking for duplicates");
+               // console.log("users has friend requests, checking for duplicates");
 
                 FriendRequest.find({ '_id': { $in: usersFriendRequests } }, function (err, friendRequests) {
 

@@ -20,15 +20,15 @@ let prepareUsers = async function () {
 };
 
 let emptyFriendRequests = async function () {
-    console.log("Deleting");
+   // console.log("Deleting");
     await FrienRequest.deleteMany().exec();
-    console.log("Deleted");
+   // console.log("Deleted");
 };
 
 let emptyFriendsLists = async function () {
-    console.log("Deleting");
-    await FrienRequest.deleteMany().exec();
-    console.log("Deleted");
+  //  console.log("Deleting");
+    await FriendsList.deleteMany().exec();
+  //  console.log("Deleted");
 };
 
 let testHelper = {
@@ -61,9 +61,9 @@ let testHelper = {
 module.exports = testHelper;
 
 let emptyUsersCollection = async function () {
-    console.log("Deleting");
+   // console.log("Deleting");
     await User.deleteMany().exec();
-    console.log("Deleted");
+   // console.log("Deleted");
 };
 
 let populateUsersCollection = async function () {
@@ -101,5 +101,5 @@ let populateUsersCollection = async function () {
 
     await user3.save();
 
-    console.log("Populated");
+   // console.log("Populated");
 };

@@ -22,7 +22,7 @@
     "start": "node server.js",
     "dev": "nodemon --inspect server.js",
     "test": "jest --verbose --detectOpenHandles --runInBand --coverage --forceExit",
-    "ci-test": "jest --detectOpenHandles --forceExit"
+    "ci-test": "jest --detectOpenHandles --runInBand"
   },
   "author": "",
   "license": "ISC"

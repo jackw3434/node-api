@@ -14,22 +14,22 @@ initMongoose.connectToMongoose(connectionString);
 let users = {};
 
 io.on('connection', socket => {
-    console.log("Client Connected to group")
+    // console.log("Client Connected to group")
     socket.on("new-user", name => {
         users[socket.id] = name;
         //socket.broadcast.emit("user-connected", name)
-        console.log("user", name, "Connected")
+        //  console.log("user", name, "Connected")
     })
 
     socket.on('create', room => {
-        console.log("creat room ", room);
+        //  console.log("creat room ", room);
         socket.join(room);
     });
 
     socket.on('join', (room, whoJoined) => {
 
         if (io.sockets.adapter.rooms[room] && io.sockets.adapter.rooms[room].length > 2 && io.sockets.adapter.rooms[room].socket != socket.id) {
-            console.log("2 users, cannot join", io.sockets.adapter.rooms[room]);
+            // console.log("2 users, cannot join", io.sockets.adapter.rooms[room]);
             socket.leave(room);
         } else {
 
@@ -74,7 +74,7 @@ io.on('connection', socket => {
 
     socket.on("disconnect", () => {
         socket.broadcast.emit("user-disconnected", users[socket.id]);
-        console.log("Client disconnected", users[socket.id])
+        // console.log("Client disconnected", users[socket.id])
         delete users[socket.id];
     });
 })
