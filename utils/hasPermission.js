@@ -1,31 +1,35 @@
-let permissionsConfig = require("../config/permissions.config.json");
+// let permissionsConfig = require("../config/permissions.config.json");
 
-function rejectRequest(res) {
-    let message = "Permission denied.";
-    let statusCode = 403;
-    res.status(statusCode).send(message);
-}
+// function rejectRequest(res) {
+//     let message = "Permission denied.";
+//     let statusCode = 403;
+//     res.status(statusCode).send(message);
+// }
 
-module.exports = function (tokenData, permissionKey, req, res, ) {
+// ******************** NOT BEING USED *****************************
+// *****************************************************************
+// *****************************************************************
 
-    if (!tokenData || !tokenData.user_role || !tokenData.user_id) {
-        rejectRequest(res);
-        return false;
-    }
+// module.exports = function (tokenData, permissionKey, req, res, ) {
 
-    let role = tokenData.user_role;
+//     if (!tokenData || !tokenData.user_role || !tokenData.user_id) {
+//         rejectRequest(res);
+//         return false;
+//     }
 
-    if (!permissionsConfig.roles[role]) {
-        rejectRequest(res);
-        return false;
-    }
+//     let role = tokenData.user_role;
 
-    let rolePermissions = permissionsConfig.roles[role];
+//     if (!permissionsConfig.roles[role]) {
+//         rejectRequest(res);
+//         return false;
+//     }
 
-    if (rolePermissions[permissionKey]) {
-        return true;
-    } else {
-        rejectRequest(res);
-        return false;
-    };
-}
+//     let rolePermissions = permissionsConfig.roles[role];
+
+//     if (rolePermissions[permissionKey]) {
+//         return true;
+//     } else {
+//         rejectRequest(res);
+//         return false;
+//     };
+// }

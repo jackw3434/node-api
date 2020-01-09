@@ -3,7 +3,7 @@ let port = require('../../../../config/connectionString').serverPort;
 let baseURL = 'http://localhost:' + port + '/api/';
 let testHelper = require('../../../../test/test-helper');
 
-describe('users test', function () {
+describe('me tests', function () {
 
     beforeAll(async (done) => {
         await testHelper.init();

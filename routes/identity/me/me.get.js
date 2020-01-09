@@ -1,6 +1,5 @@
 let User = require('../../../models/user');
 let auth = require('../../../utils/auth');
-let hasPermission = require('../../../utils/hasPermission');
 
 module.exports = function (router) {
     router.route('/user/me/:id').get(auth.required, function (req, res) {

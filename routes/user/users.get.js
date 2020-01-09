@@ -1,5 +1,4 @@
 let Users = require('../../models/user');
-let hasPermission = require('../../utils/hasPermission');
 let auth = require('../../utils/auth');
 
 module.exports = function (router) {
