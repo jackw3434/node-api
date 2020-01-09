@@ -2,7 +2,7 @@ let User = require('../../models/user');
 let auth = require('../../utils/auth');
 
 module.exports = function (router) {
-    router.route('/login').post(auth.optional, function (req, res) {
+    router.route('/login').post(function (req, res) {
    
         let userEmail, userPassword;
    

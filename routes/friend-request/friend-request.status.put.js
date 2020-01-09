@@ -36,7 +36,6 @@ module.exports = function (router) {
                 User.find({ email: { $in: [sender, receiver] } }, projection, function (err, users) {
 
                     if (err || !users || users.length == 0) {
-                        console.log(err);
                         return res.status(400).send('Validation_error, No matching Users.', err);
                     }
 

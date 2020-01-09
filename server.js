@@ -28,8 +28,8 @@ io.on('connection', socket => {
 
     socket.on('join', (room, whoJoined) => {
 
-        if (io.sockets.adapter.rooms[room] && io.sockets.adapter.rooms[room].length >= 2 && io.sockets.adapter.rooms[room].socket != socket.id) {
-            console.log("2 users, cannot join");
+        if (io.sockets.adapter.rooms[room] && io.sockets.adapter.rooms[room].length > 2 && io.sockets.adapter.rooms[room].socket != socket.id) {
+            console.log("2 users, cannot join", io.sockets.adapter.rooms[room]);
             socket.leave(room);
         } else {
 
@@ -46,7 +46,7 @@ io.on('connection', socket => {
                     }
                 })
 
-                io.to(socketIdOfuserToSendTo).emit('message', { message: whoJoined + " has joined you.", name: users[socket.id] });
+                //io.to(socketIdOfuserToSendTo).emit('message', { message: whoJoined + " has joined you.", name: users[socket.id] });
             }
         }
     });
@@ -59,15 +59,17 @@ io.on('connection', socket => {
 
         let mySocketID = socket.id;
         let socketIdOfuserToSendTo;
-        let listOfSockets = Object.keys(io.sockets.adapter.rooms[whoTo].sockets);
+        if (io.sockets.adapter.rooms[whoTo].sockets && io.sockets.adapter.rooms[whoTo]) {
+            let listOfSockets = Object.keys(io.sockets.adapter.rooms[whoTo].sockets);
 
-        listOfSockets.map(id => {
-            if (id != mySocketID) {
-                socketIdOfuserToSendTo = id;
-            }
-        })
-     
-        io.to(socketIdOfuserToSendTo).emit('message', { message: message, name: users[socket.id] });
+            listOfSockets.map(id => {
+                if (id != mySocketID) {
+                    socketIdOfuserToSendTo = id;
+                }
+            })
+
+            io.to(socketIdOfuserToSendTo).emit('message', { message: message, name: users[socket.id] });
+        }
     })
 
     socket.on("disconnect", () => {
